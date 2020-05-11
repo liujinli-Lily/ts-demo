@@ -1,13 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <Mcontainter >
+          <MHeader/>
+
+          <Mcontainter >
+              <Maside :width="asideWidth">
+<!--                  <leftMenu :subNavList="Menu" mode="vertical"/>-->
+              </Maside>
+              <Modmain>
+                  <router-view/>
+              </Modmain>
+          </Mcontainter>
+      </Mcontainter>
+
   </div>
 </template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Mcontainter from '@/components/containter.vue'
+import MHeader from '@/components/header.vue'
+import Modmain from '@/components/main.vue'
+import Maside from '@/components/leftbar.vue'
+import Menu from '@/components/menu.vue'
+import leftMenu from '@/components/leftMenu.vue'
+import { MenuRoute } from '@/types/routes'
+import { Menuroutes } from '@/router'
 
+@Component({
+  name: 'Index',
+  components: {
+    MHeader,
+    Mcontainter,
+    Maside,
+    Menu,
+    leftMenu,
+    Modmain
+  }
+})
+export default class Index extends Vue {
+    public asideWidth: any = '200px';
+
+    public Menu: MenuRoute[] = Menuroutes;
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
