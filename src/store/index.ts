@@ -5,14 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 0
+    form: {
+      count: 0
+    }
+
   },
   mutations: {
     add (state: any) {
-      state.count++
+      state.form.count++
     },
     jian (state: any) {
-      state.count--
+      state.form.count--
     }
   },
   actions: {

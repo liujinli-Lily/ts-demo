@@ -1,3 +1,45 @@
 body{
   margin: 0;
 }
+.mod-form-item{
+  width: 50%;
+  float: left;
+  &.normal{
+    width: 100%;
+    float: none;
+  }
+  .el-form-item__label{
+    width: 100px;
+  }
+  .el-form-item__content{
+    margin-left: 100px;
+  }
+}
+.mod-form-item_append{
+  display: inline-block;
+  &.no-label{
+    .el-form-item__content{
+      margin-left: 0px;
+      .el-select input{
+        width: 100px;
+      }
+    }
+  }
+  &.min-form{
+    .el-input{
+      width: 50px;
+
+      display: inline-block;
+    }
+    input{
+      width: 50px;
+      padding: 0;
+    }
+  }
+  .el-form-item__label{
+    width: 100px;
+  }
+  .el-form-item__content{
+    margin-left: 100px;
+  }
+}

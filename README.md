@@ -1,4 +1,4 @@
-# hello-world
+# ts-demo
 
 ## Project setup
 ```
@@ -42,3 +42,9 @@ git push -u origin master
 git remote add origin https://github.com/liujinli-Lily/ts-demo.git
 git push -u origin master
 ```
+
+参考文档：vue-cli
+https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create
+
+https://segmentfault.com/a/1190000011744210
+

@@ -1,7 +1,7 @@
 <template>
-    <aside class="m-aside" :style="{ width }">
+    <div class="m-aside" :style="{ width }">
         <slot></slot>
-    </aside>
+    </div>
 </template>
 
 <script lang="ts">
@@ -20,10 +20,11 @@ export default class Maside extends Vue {
 
 <style scoped>
     .m-aside{
-        overflow:auto;
-        -webkit-box-sizing:border-box;
-        box-sizing:border-box;
-        -ms-flex-negative:0;
-        flex-shrink:0
+        position: fixed;
+        margin-top: 60px;
+        min-height: calc(100vh - 50px);
+        z-index: 10;
+        background-color: #2D4157;
+        height: 100%;
     }
 </style>

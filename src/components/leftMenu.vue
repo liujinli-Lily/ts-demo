@@ -1,25 +1,42 @@
 <template>
-    <el-menu
-        default-active="$route.path"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-    >
-        <el-submenu v-for="(item,index) in subNavList" :key="index" :index="item.path">
-            <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>{{ item.name }}</span>
+        <el-menu
+            default-active="$route.path"
+            class="el-menu-vertical-demo"
+            @open="handleOpen"
+            @close="handleClose"
+            background-color="#2D4157"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+        >
+            <template v-for="(menu_v,menu_k) in subNavList">
+                <el-submenu v-if="menu_v.children" :index="menu_v.path" :key="menu_k">
+                    <template slot="title">
+                        <i :class="menu_v.icon"/>
+                        <span slot="title">{{ menu_v.name }}</span>
+                    </template>
+                    <div v-for="(subItem, i) in menu_v.children" :key="i">
+                        <el-submenu v-if="subItem.children" :index="subItem.name">
+                            <template slot="title">
+                                <i :class="subItem.icon"/>
+                                <span slot="title">{{ subItem.name }}</span>
+                            </template>
+                            <el-menu-item v-for="(threeItem, k) in subItem.children" :key="k" :index="threeItem.path">
+                                <i :class="threeItem.icon"/>
+                                <span slot="title">{{ threeItem.name }}</span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-menu-item v-else :index="subItem.path">
+                            <i :class="subItem.icon"/>
+                            <span slot="title">{{ subItem.name }}</span>
+                        </el-menu-item>
+                    </div>
+                </el-submenu>
+                <el-menu-item v-else :index="menu_v.path" :key="menu_k">
+                    <i :class="menu_v.icon"/>
+                    <span slot="title">{{ menu_v.name }}</span>
+                </el-menu-item>
             </template>
-            <el-menu-item v-for="(subItem, subIndex) in item.children" :key="subIndex" :index="subItem.path" class="SubLi" >
-                {{ subItem.name }}
-            </el-menu-item>
-
-        </el-submenu>
-
-    </el-menu>
+        </el-menu>
 </template>
 
 <script lang="ts">
@@ -47,16 +64,18 @@ export default class Menu extends Vue {
       // this.activeIndex = this.$route.path
     }
 
-    handleOpen (key: any, keyPath: string) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public handleOpen (key: any, keyPath: string) {
       console.log(key, keyPath)
     }
 
-    handleClose (key: any, keyPath: string) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public handleClose (key: any, keyPath: string) {
       console.log(key, keyPath)
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

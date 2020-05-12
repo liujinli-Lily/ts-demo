@@ -1,6 +1,6 @@
 <template>
-    <div>page2
-
+    <div>
+        <h3>模块滚动</h3>
         <div class="home-category">
             <div class="scroll-wrapper" ref="scroll">
                 <div class="scroll-content" ref="test">
@@ -22,9 +22,13 @@ import BScroll from '@better-scroll/core'
 @Component
 export default class Page2 extends Vue {
     public rate: number | any = 0;
-    public cateList: [] | any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    public cateList: [] | any = []
 
-    mounted () {
+    public created () {
+      this.setCate()
+    }
+
+    public mounted () {
       this.init()
     }
 
@@ -41,6 +45,12 @@ export default class Page2 extends Vue {
         const currentX = Math.abs(pos.x)
         this.rate = `${Number((currentX / totalX) * 100).toFixed(2)}%`
       })
+    }
+
+    public setCate (): void {
+      for (let i = 0; i < 20; i++) {
+        this.cateList.push(i)
+      }
     }
 
     public _registerHooks (hookNames: any, handler: any): void {
@@ -66,7 +76,7 @@ export default class Page2 extends Vue {
                 font-size: 24px;
                 display: inline-block;
                 text-align: center;
-                background: red;
+                background: #c0f5f0;
                 padding: 0 32px;
                 line-height: 50px;
                 margin: 0 10px;

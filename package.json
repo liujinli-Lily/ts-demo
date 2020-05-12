@@ -6,8 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint src"
   },
+
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.6",
     "core-js": "^3.6.4",

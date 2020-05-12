@@ -13,11 +13,9 @@ export default class Modmain extends Vue {
 
 <style scoped>
     .m-main{
-        display:block;
-        flex:1;
-        flex-basis:auto;
         overflow:auto;
         box-sizing:border-box;
-        padding:20px
+        padding: 0 30px 30px 30px;
+        min-height: calc(100vh - 215px);
     }
 </style>

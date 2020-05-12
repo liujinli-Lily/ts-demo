@@ -24,9 +24,12 @@ export default class Home extends Vue {
     public images: ImagesArray[] = ImagesData;
 }
 </script>
-<style>
+<style lang="scss" scoped>
     img{
         height: 470px;
         width: 960px;
+    }
+    .home{
+        text-align: center;
     }
 </style>

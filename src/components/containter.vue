@@ -32,13 +32,21 @@ export default class Mcontainter extends Vue {
 
 <style scoped lang="scss">
     .m-containter{
-        display:flex;
-        -webkit-box-orient:horizontal;
-        flex-direction:row;
-        -flex:1;
-        flex-basis:auto;
-        box-sizing:border-box;
-        min-width:0
+        /*display:flex;*/
+        /*-webkit-box-orient:horizontal;*/
+        /*flex-direction:row;*/
+        /*-flex:1;*/
+        /*flex-basis:auto;*/
+        /*box-sizing:border-box;*/
+        /*min-width:0;*/
+        width: 100%;
+        padding: 0 200px;
     }
-    .m-containter.is-vertical{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+    .m-containter.is-vertical{
+        /*-webkit-box-orient:vertical;*/
+        /*-webkit-box-direction:normal;*/
+        /*-ms-flex-direction:column;*/
+        /*flex-direction:column;*/
+        padding-left: 0;
+    }
 </style>

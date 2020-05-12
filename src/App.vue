@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-      <Mcontainter >
+      <div class="main">
           <MHeader/>
-
           <Mcontainter >
-              <Maside :width="asideWidth">
-<!--                  <leftMenu :subNavList="Menu" mode="vertical"/>-->
-              </Maside>
               <Modmain>
                   <router-view/>
               </Modmain>
           </Mcontainter>
-      </Mcontainter>
+      </div>
 
   </div>
 </template>
@@ -20,38 +16,36 @@ import { Component, Vue } from 'vue-property-decorator'
 import Mcontainter from '@/components/containter.vue'
 import MHeader from '@/components/header.vue'
 import Modmain from '@/components/main.vue'
-import Maside from '@/components/leftbar.vue'
-import Menu from '@/components/menu.vue'
-import leftMenu from '@/components/leftMenu.vue'
-import { MenuRoute } from '@/types/routes'
-import { Menuroutes } from '@/router'
 
 @Component({
   name: 'Index',
   components: {
     MHeader,
     Mcontainter,
-    Maside,
-    Menu,
-    leftMenu,
     Modmain
   }
 })
 export default class Index extends Vue {
-    public asideWidth: any = '200px';
-
-    public Menu: MenuRoute[] = Menuroutes;
 }
 </script>
 <style lang="scss">
+@import "./assets/scss/global";
+@import "./assets/scss/reset";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
 }
-
+.main{
+    background-color: #f1f2f3;
+    margin-top: -80px;
+    min-width: 1200px;
+    overflow: auto;
+    padding: 80px 0 0 0;
+    box-sizing: border-box;
+}
 #nav {
   padding: 30px;
 
