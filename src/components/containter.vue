@@ -5,27 +5,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component
 export default class Mcontainter extends Vue {
     @Prop({
-      type: String,
-      required: false,
-      default: ''
+        type: String,
+        required: false,
+        default: '',
     }) private direction: string | undefined
 
     get isVertical () {
-      if (this.direction === 'vertical') {
-        return true
-      } else if (this.direction === 'horizontal') {
-        return false
-      }
-      return this.$slots && this.$slots.default
-        ? this.$slots.default.some(vnode => {
-          const tag = vnode.componentOptions && vnode.componentOptions.tag
-          return tag === 'MHeader' || tag === 'MFooter'
-        })
-        : false
+        if (this.direction === 'vertical') {
+            return true;
+        } else if (this.direction === 'horizontal') {
+            return false;
+        }
+        return this.$slots && this.$slots.default
+            ? this.$slots.default.some(vnode => {
+                const tag = vnode.componentOptions && vnode.componentOptions.tag;
+                return tag === 'MHeader' || tag === 'MFooter';
+            })
+            : false;
     }
 }
 </script>

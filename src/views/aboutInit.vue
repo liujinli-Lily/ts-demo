@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'aboutInit'
-}
+    name: 'AboutInit',
+};
 </script>
 
 <style scoped>

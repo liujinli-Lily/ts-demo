@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-      <div class="main">
-          <MHeader/>
-          <Mcontainter >
-              <Modmain>
-                  <router-view/>
-              </Modmain>
-          </Mcontainter>
-      </div>
+    <div id="app">
+        <div class="main">
+            <MHeader/>
+            <Mcontainter >
+                <Modmain>
+                    <router-view/>
+                </Modmain>
+            </Mcontainter>
+        </div>
 
-  </div>
+    </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import Mcontainter from '@/components/containter.vue'
-import MHeader from '@/components/header.vue'
-import Modmain from '@/components/main.vue'
+import { Component, Vue } from 'vue-property-decorator';
+import Mcontainter from '@/components/containter.vue';
+import MHeader from '@/components/header.vue';
+import Modmain from '@/components/main.vue';
 
 @Component({
-  name: 'Index',
-  components: {
-    MHeader,
-    Mcontainter,
-    Modmain
-  }
+    name: 'Index',
+    components: {
+        MHeader,
+        Mcontainter,
+        Modmain,
+    },
 })
 export default class Index extends Vue {
 }

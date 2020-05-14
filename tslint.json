@@ -8,8 +8,19 @@
       "node_modules/**"
     ]
   },
+  "jsRules": {},
   "rules": {
-     "indent": [true, "spaces", 4],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    "indent": [2, 4, {
+      "SwitchCase": 1
+    }],
+    "camelcase": 0, // 关闭驼峰命名规则
+//     "indent": [true, "spaces", 4],
     "interface-name": false,
     "no-consecutive-blank-lines": false,
     "object-literal-sort-keys": false,

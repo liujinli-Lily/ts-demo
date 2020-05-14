@@ -25,10 +25,11 @@
                 </el-select>
             </el-form-item>
 
-            <div class="mod-append"
-                 v-for="(checks, index) in ruleForm.rule"
-                 :key="index"
-                 :data-index="index">
+            <div
+                class="mod-append"
+                v-for="(checks, index) in ruleForm.rule"
+                :key="index"
+                :data-index="index">
                 <el-form-item
                     class="mod-form-item_append"
                     label="监控项"
@@ -73,7 +74,7 @@
                         label=""
                         :prop="'rule.'+ index +'.countm'"
                         :rules="[{validator: checkNumPre, trigger: 'blur' }
-                            ]"
+                        ]"
                     >
                         <el-input v-model.number="checks.countm"></el-input>
                     </el-form-item>
@@ -117,30 +118,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { Action, State } from 'vuex-class'
-import { mapActions } from 'vuex'
+import { Component, Vue } from 'vue-property-decorator';
+import { Action, State } from 'vuex-class';
+import { mapActions } from 'vuex';
 @Component
 export default class From extends Vue {
       public levellist: any[] = [{
-        label: 'error',
-        id: 1
+          label: 'error',
+          id: 1,
       }, {
-        label: 'warning',
-        id: 2
+          label: 'warning',
+          id: 2,
       }]
 
     public ruleForm: Record<string, any> = {
-      name: '',
-      level: '',
-      action: '0',
-      rule: [{
-        itemid: '',
-        operator: '',
-        result: '',
-        countm: '',
-        countn: ''
-      }]
+        name: '',
+        level: '',
+        action: '0',
+        rule: [{
+            itemid: '',
+            operator: '',
+            result: '',
+            countm: '',
+            countn: '',
+        }],
     }
 
     public width = '1000px'
@@ -149,93 +150,93 @@ export default class From extends Vue {
     public actionlist: any[] = [{ id: 1, name: '123' }, { id: 2, name: '2222' }];
 
     public mounted () {
-      // console.log(this.appendCheck[0].control,222);
+        // console.log(this.appendCheck[0].control,222);
     }
 
     public checkNumPre (rule: object, value: any, callback: any) {
-      if (value === ' ' && value !== 0) {
-        return callback(new Error('请输入数字值'))
-      }
-      if (!Number.isInteger(parseInt(value))) {
-        callback(new Error('请输入数字值'))
-      } else {
-        if (value <= 0) {
-          callback(new Error('必须大于0'))
-        } else {
-          callback()
+        if (value === ' ' && value !== 0) {
+            return callback(new Error('请输入数字值'));
         }
-      }
+        if (!Number.isInteger(parseInt(value))) {
+            callback(new Error('请输入数字值'));
+        } else {
+            if (value <= 0) {
+                callback(new Error('必须大于0'));
+            } else {
+                callback();
+            }
+        }
     }
 
     public checkNumNext (rule: any, value: any, callback: any) {
-      const { field } = rule
-      const start = field.indexOf('.countn')// 获得开始位置
-      const result = field.substring(0, start)
-      const _key = parseInt(result.substring(result.indexOf('.') + 1)) // 获取rule的key值
-      const _countm = this.ruleForm.rule[_key].countm
-      // console.log(_countm,'222');
-      if (value === ' ' && value !== 0) {
-        return callback(new Error('请输入数字值'))
-      }
-      if (!Number.isInteger(parseInt(value))) {
-        callback(new Error('请输入数字值'))
-      } else {
-        if (value <= 0) {
-          callback(new Error('必须大于0'))
-        } else if (_countm < value) {
-          callback(new Error('必须小于或等于总数'))
-        } else {
-          callback()
+        const { field } = rule;
+        const start = field.indexOf('.countn');// 获得开始位置
+        const result = field.substring(0, start);
+        const _key = parseInt(result.substring(result.indexOf('.') + 1)); // 获取rule的key值
+        const _countm = this.ruleForm.rule[_key].countm;
+        // console.log(_countm,'222');
+        if (value === ' ' && value !== 0) {
+            return callback(new Error('请输入数字值'));
         }
-      }
+        if (!Number.isInteger(parseInt(value))) {
+            callback(new Error('请输入数字值'));
+        } else {
+            if (value <= 0) {
+                callback(new Error('必须大于0'));
+            } else if (_countm < value) {
+                callback(new Error('必须小于或等于总数'));
+            } else {
+                callback();
+            }
+        }
     }
 
     public reset () {
-      this.ruleForm.name = ''
-      this.ruleForm.level = ''
-      this.ruleForm.action = '0'
-      this.ruleForm.rule = [{
-        itemid: '',
-        operator: '',
-        result: '',
-        countm: '',
-        countn: ''
-      }]
+        this.ruleForm.name = '';
+        this.ruleForm.level = '';
+        this.ruleForm.action = '0';
+        this.ruleForm.rule = [{
+            itemid: '',
+            operator: '',
+            result: '',
+            countm: '',
+            countn: '',
+        }];
     }
 
     public async submitForm (formName: string): Promise<void> {
-      const items = []
-      const el: any = this.$refs[formName]
-      el.validate((valid: any) => {
-        if (valid) {
-          const result = this.ruleForm.rule
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+        const items = [];
+        const el: any = this.$refs[formName];
+        el.validate((valid: any) => {
+            if (valid) {
+                const result = this.ruleForm.rule;
+            } else {
+                console.log('error submit!!');
+                return false;
+            }
+        });
     }
 
     public resetForm () {
-      const el: any = this.$refs.ruleForm
-      el.resetFields()
+        const el: any = this.$refs.ruleForm;
+        el.resetFields();
     }
 
     public addCheck () {
-      this.ruleForm.rule.push({
-        itemid: '',
-        operator: '',
-        result: '',
-        countm: '',
-        countn: ''
-      })
+        this.ruleForm.rule.push({
+            itemid: '',
+            operator: '',
+            result: '',
+            countm: '',
+            countn: '',
+        });
     }
 
     public removeDomain (item: any) {
-      const index = this.ruleForm.rule.indexOf(item)
-      if (index !== -1) {
-        this.ruleForm.rule.splice(index, 1)
-      }
+        const index = this.ruleForm.rule.indexOf(item);
+        if (index !== -1) {
+            this.ruleForm.rule.splice(index, 1);
+        }
     }
 }
 </script>

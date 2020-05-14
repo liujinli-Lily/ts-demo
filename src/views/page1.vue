@@ -17,21 +17,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { Action, State } from 'vuex-class'
+import { Component, Vue } from 'vue-property-decorator';
+import { Action, State } from 'vuex-class';
 
 function checkNum (rule: any, value: any, callback: any) {
-  if (!Number.isInteger(parseInt(value))) {
-    callback(new Error('请输入数字值'))
-  } else {
-    callback()
-  }
+    if (!Number.isInteger(parseInt(value))) {
+        callback(new Error('请输入数字值'));
+    } else {
+        callback();
+    }
 };
 const fromrules: object | any = {
-  count: [
-    { required: true, message: '请输入数字', validator: checkNum }
-  ]
-}
+    count: [
+        { required: true, message: '请输入数字', validator: checkNum },
+    ],
+};
 
 @Component
 export default class Page1 extends Vue {
@@ -42,17 +42,17 @@ export default class Page1 extends Vue {
     @Action public add: any;
 
     submit (refname: string, type: string) {
-      const el: any = this.$refs[refname]
-      el.validate(async (valid: any) => {
-        if (!valid) {
-          return
-        }
-        if (type === 'decrement') {
-          this.jian()
-          return
-        }
-        this.add()
-      })
+        const el: any = this.$refs[refname];
+        el.validate(async (valid: any) => {
+            if (!valid) {
+                return;
+            }
+            if (type === 'decrement') {
+                this.jian();
+                return;
+            }
+            this.add();
+        });
     }
 }
 </script>

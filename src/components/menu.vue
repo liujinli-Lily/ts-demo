@@ -10,15 +10,15 @@
             text-color="#fff"
             active-text-color="#ffd04b">
             <el-menu-item v-for="(item,key) in subNavList" :key="key" :index="item.path" >
-<!--                <el-submenu :index="item.path" v-if="item.children">-->
-<!--                    <template slot="title">-->
-<!--                        <i :class="item.icon"/>-->
-<!--                        <span>{{item.name}}</span>-->
-<!--                    </template>-->
-<!--                    <el-menu-item-group v-for="(child, i) in item.children" :key="i * 22" >-->
-<!--                        <el-menu-item :index="child.path">{{child.name}}</el-menu-item>-->
-<!--                    </el-menu-item-group>-->
-<!--                </el-submenu>-->
+                <!--                <el-submenu :index="item.path" v-if="item.children">-->
+                <!--                    <template slot="title">-->
+                <!--                        <i :class="item.icon"/>-->
+                <!--                        <span>{{item.name}}</span>-->
+                <!--                    </template>-->
+                <!--                    <el-menu-item-group v-for="(child, i) in item.children" :key="i * 22" >-->
+                <!--                        <el-menu-item :index="child.path">{{child.name}}</el-menu-item>-->
+                <!--                    </el-menu-item-group>-->
+                <!--                </el-submenu>-->
                 <el-menu-item :index="item.path">
                     <i :class="item.icon" class="iconfont" style="font-size: 18px"/>
                     <span slot="title" style="margin-left: 12px;">{{item.name}}</span>
@@ -29,60 +29,60 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch, Prop } from 'vue-property-decorator'
-import { MenuRoute } from '@/types/routes'
+import { Component, Vue, Watch, Prop } from 'vue-property-decorator';
+import { MenuRoute } from '@/types/routes';
 
 @Component
 export default class Menu extends Vue {
     activeIndex = '/';
 
     @Prop({
-      type: Array,
-      required: true,
-      default: []
+        type: Array,
+        required: true,
+        default: [],
     })
     public subNavList!: MenuRoute[];
 
     @Prop({
-      type: String,
-      required: false,
-      default: ''
+        type: String,
+        required: false,
+        default: '',
     })
     public mode?: string
 
     @Watch('$route')
     private onRouterChange (): void {
-      this.activeIndex = this.$route.path
+        this.activeIndex = this.$route.path;
     }
 
     public mounted () {
-      this.updateMenus()
+        this.updateMenus();
     }
 
     public updateMenus () {
-      // 优先使根据fullPath 去匹配对应的菜单
-      for (let i = 0; i < this.subNavList.length; i++) {
-        const item = this.subNavList[i]
-        const state = this.findMenusItemByFullPath(item)
-        if (state) {
-          this.activeIndex = item.path
-          break
+        // 优先使根据fullPath 去匹配对应的菜单
+        for (let i = 0; i < this.subNavList.length; i++) {
+            const item = this.subNavList[i];
+            const state = this.findMenusItemByFullPath(item);
+            if (state) {
+                this.activeIndex = item.path;
+                break;
+            }
         }
-      }
     }
 
     // 根据当前得路由 对比 循环得item.path 返回boolean
     public findMenusItemByFullPath (item: any) {
-      if (item.path === this.$route.fullPath) {
-        return true
-      }
-      for (const key in item.children) {
-        const state = this.findMenusItemByFullPath(item.children[key])
-        if (state) {
-          return true
+        if (item.path === this.$route.fullPath) {
+            return true;
         }
-      }
-      return false
+        for (const key in item.children) {
+            const state = this.findMenusItemByFullPath(item.children[key]);
+            if (state) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // public toggleMenu (item: object, index: any) {
@@ -113,7 +113,7 @@ export default class Menu extends Vue {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     handleSelect (key: any, keyPath: string) {
-      console.log(key, keyPath)
+        console.log(key, keyPath);
     }
 }
 </script>

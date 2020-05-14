@@ -17,46 +17,46 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import BScroll from '@better-scroll/core'
+import { Component, Vue } from 'vue-property-decorator';
+import BScroll from '@better-scroll/core';
 @Component
 export default class Page2 extends Vue {
     public rate: number | any = 0;
     public cateList: [] | any = []
 
     public created () {
-      this.setCate()
+        this.setCate();
     }
 
     public mounted () {
-      this.init()
+        this.init();
     }
 
     public init (): void {
-      (this as any).bs = new BScroll((this as any).$refs.scroll, {
-        scrollX: true,
-        click: true,
-        probeType: 3 // listening scroll hook
-      })
+        (this as any).bs = new BScroll((this as any).$refs.scroll, {
+            scrollX: true,
+            click: true,
+            probeType: 3, // listening scroll hook
+        });
 
-      const totalX = Math.abs((this as any).bs.maxScrollX)
+        const totalX = Math.abs((this as any).bs.maxScrollX);
 
-      this._registerHooks(['scroll'], (pos: any) => {
-        const currentX = Math.abs(pos.x)
-        this.rate = `${Number((currentX / totalX) * 100).toFixed(2)}%`
-      })
+        this._registerHooks(['scroll'], (pos: any) => {
+            const currentX = Math.abs(pos.x);
+            this.rate = `${Number((currentX / totalX) * 100).toFixed(2)}%`;
+        });
     }
 
     public setCate (): void {
-      for (let i = 0; i < 20; i++) {
-        this.cateList.push(i)
-      }
+        for (let i = 0; i < 20; i++) {
+            this.cateList.push(i);
+        }
     }
 
     public _registerHooks (hookNames: any, handler: any): void {
-      hookNames.forEach((name: any) => {
-        (this as any).bs.on(name, handler)
-      })
+        hookNames.forEach((name: any) => {
+            (this as any).bs.on(name, handler);
+        });
     }
 }
 </script>

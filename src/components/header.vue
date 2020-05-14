@@ -6,24 +6,24 @@
             </div>
             <Menu mode="horizontal" :subNavList="headerMenu"/>
         </header>
-<!--        <Maside :width="asideWidth">-->
-<!--            <leftMenu :subNavList="Menu" mode="vertical"/>-->
-<!--        </Maside>-->
+        <!--        <Maside :width="asideWidth">-->
+        <!--            <leftMenu :subNavList="Menu" mode="vertical"/>-->
+        <!--        </Maside>-->
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import Menu from '@/components/menu.vue'
-import { MenuRoute } from '@/types/routes'
-import { Menuroutes } from '../router/index'
-import Maside from '@/components/leftbar.vue'
-import leftMenu from '@/components/leftMenu.vue'
+import { Component, Vue } from 'vue-property-decorator';
+import Menu from '@/components/menu.vue';
+import { MenuRoute } from '@/types/routes';
+import { Menuroutes } from '../router/index';
+import Maside from '@/components/leftbar.vue';
+import leftMenu from '@/components/leftMenu.vue';
 @Component({
-  components: {
-    Menu,
-    Maside,
-    leftMenu
-  }
+    components: {
+        Menu,
+        Maside,
+        leftMenu,
+    },
 })
 export default class MHeader extends Vue {
     public asideWidth = '200px';
