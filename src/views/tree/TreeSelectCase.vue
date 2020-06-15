@@ -139,7 +139,7 @@
 import { TableSelections } from '@/mixins/TableSelections.js';
 import Table from '@/components/common/Table.vue';
 import EmptyContent from '@/components/common/EmptyContent';
-import { DialogColumns } from './config';
+import { DialogColumns } from './config.ts';
 import {
     appdata,
     tags,
@@ -147,7 +147,7 @@ import {
     cases,
     select_tags,
     select_inter,
-} from './data';
+} from './data.ts';
 export default {
     name: 'TreeSelectCase',
     components: {

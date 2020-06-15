@@ -4,15 +4,11 @@ import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 const originalPush = VueRouter.prototype.push;
-// @ts-ignore
-VueRouter.prototype.push = function push (location: any, onResolve: any, onReject: any) {
-    if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);
+VueRouter.prototype.push = function push(location: any) {
     // @ts-ignore
-    const promise = originalPush.call(this, location).catch(err => {
-        return err;
-    });
-    return promise;
-};
+    return originalPush.call(this, location).catch(err => err)
+}
+
 export const Menuroutes = [
     {
         path: '/',

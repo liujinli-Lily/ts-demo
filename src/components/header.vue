@@ -28,7 +28,7 @@ import leftMenu from '@/components/leftMenu.vue';
 export default class MHeader extends Vue {
     public asideWidth = '200px';
 
-    public Menu: MenuRoute[] = Menuroutes;
+    // public Menu: MenuRoute[] = Menuroutes;
     public headerMenu: MenuRoute[] = Menuroutes;
 }
 </script>

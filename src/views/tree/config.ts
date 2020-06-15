@@ -1,6 +1,7 @@
 import Moment from 'moment';
+import { ButtonGroup, FormItem, TableColumn } from '@/types';
 
-export const DialogColumns = [{
+export const DialogColumns: TableColumn[] = [{
     type: 'selection',
     align: 'center',
 }, {
@@ -22,7 +23,7 @@ export const DialogColumns = [{
     render: ({ row }) => row.created_at ? Moment(row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
 }];
 
-export const DetailsColumns = (onClickItem) => [{
+export const DetailsColumns = (onClickItem: any) => [{
     title: '用例名称',
     key: 'name',
     nowrap: true,
@@ -47,5 +48,5 @@ export const DetailsColumns = (onClickItem) => [{
 }, {
     title: '创建时间',
     key: 'created_at',
-    render: ({ row }) => row.created_at ? Moment(row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
+    render: ({row}) => row.created_at ? Moment(row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
 }];

@@ -48,3 +48,8 @@ https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create
 
 https://segmentfault.com/a/1190000011744210
 
+
+遇到如下报错，终端执行 cnpm update /npm update
+```angular2
+ Cannot find module '@vue/cli-shared-utils'
+```

@@ -205,11 +205,11 @@ export default class From extends Vue {
     }
 
     public async submitForm (formName: string): Promise<void> {
-        const items = [];
         const el: any = this.$refs[formName];
         el.validate((valid: any) => {
             if (valid) {
-                const result = this.ruleForm.rule;
+                console.log('success submit!!');
+                // const result = this.ruleForm.rule;
             } else {
                 console.log('error submit!!');
                 return false;
