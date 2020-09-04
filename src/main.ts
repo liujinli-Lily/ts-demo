@@ -6,6 +6,7 @@ import { Component } from 'vue-property-decorator';
 import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
 import './assets/scss/reset.scss';
+import VueScroller from 'vue-scroller'
 Vue.config.productionTip = false;
 
 Component.registerHooks([
@@ -14,6 +15,8 @@ Component.registerHooks([
     'beforeRouteUpdate',
 ]);
 Vue.use(ElementUI);
+
+Vue.use(VueScroller)
 
 new Vue({
     router,

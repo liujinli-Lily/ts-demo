@@ -102,6 +102,12 @@ export interface TableColumn {
      */
     nowrap?: boolean;
 
+    /**
+     * 是否需要slot
+     * */
+    slot?: boolean;
+
+    slotName?: string;
 }
 
 /**

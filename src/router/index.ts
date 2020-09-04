@@ -81,6 +81,11 @@ export const Menuroutes = [
             },
         ],
     },
+    {
+        path: '/waterfalls',
+        name: 'Waterfalls',
+        component: () => import(/* webpackChunkName: "about" */ '../views/scroll/index.vue'),
+    },
 ];
 
 const router = new VueRouter({

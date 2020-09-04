@@ -1,5 +1,5 @@
 import Moment from 'moment';
-import { ButtonGroup, FormItem, TableColumn } from '@/types';
+import { TableColumn } from '@/types/table';
 
 export const DialogColumns: TableColumn[] = [{
     type: 'selection',
@@ -22,7 +22,6 @@ export const DialogColumns: TableColumn[] = [{
     key: 'created_at',
     render: ({ row }) => row.created_at ? Moment(row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
 }];
-
 export const DetailsColumns = (onClickItem: any) => [{
     title: '用例名称',
     key: 'name',
@@ -48,5 +47,11 @@ export const DetailsColumns = (onClickItem: any) => [{
 }, {
     title: '创建时间',
     key: 'created_at',
-    render: ({row}) => row.created_at ? Moment(row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
+    render: (scope: any) => scope.row.created_at ? Moment(scope.row.created_at).format('YYYY-MM-DD HH:mm:ss') : '-',
 }];
+export enum TableOperationType {
+    RUN,
+    EDIT,
+    COPY,
+    DELETE,
+}
